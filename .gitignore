@@ -1,0 +1,7 @@
+# gitignore for mmorpg
+# tips obtained from intellij-support.jetbrains.com/entries/23392067
+
+.idea/workspace.sml
+.idea/tasks.xml
+.idea/libraries/*.xml
+
