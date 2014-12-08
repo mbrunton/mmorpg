@@ -1,5 +1,5 @@
 /**
  * Created by mitchellbrunton on 2/12/14.
  */
-public class UpdateManager {
+public class OutputManager {
 }
