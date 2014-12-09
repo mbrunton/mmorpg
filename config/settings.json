@@ -4,4 +4,9 @@
     playerDbHost: "localhost",
     playerDbPort: "5432",
     playerDbName: "mydb"
+    playerTableName: "players",
+    races: [ GNOME, WIZARD ],
+    meleeWeapons: [ SWORD, AXE, CLUB ],
+    rangedWeapons: [ BOW, SHOTGUN, RIFLE ],
+    inventoryItems: [ HEALTH_SMALL, HEALTH_LARGE ]
 }

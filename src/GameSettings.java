@@ -9,14 +9,19 @@ public class GameSettings {
     private String playerDbHost;
     private String playerDbPort;
     private String playerDbName;
+    private String playerTableName;
+    private String[] races;
 
     public static final String DEFAULT_NAME = "mmorpg";
+
 
     public GameSettings(Map settingsMap) throws SettingsException {
         setName((String)settingsMap.get("name"));
         setPlayerDbHost((String)settingsMap.get("playerDbHost"));
         setPlayerDbPort((String)settingsMap.get("playerDbPort"));
         setPlayerDbName((String)settingsMap.get("playerDbName"));
+        setPlayerTableName((String)settingsMap.get("playerTableName"));
+        setRaces((String[]) settingsMap.get("races"));
     }
 
     public void setName(String name) {
@@ -62,5 +67,27 @@ public class GameSettings {
 
     public String getPlayerDbName() {
         return this.playerDbName;
+    }
+
+    public void setPlayerTableName(String tableName) throws SettingsException {
+        if (tableName == null) {
+            throw new SettingsException("settings doesn't contain player table name");
+        }
+        this.playerTableName = tableName;
+    }
+
+    public String getPlayerTableName() {
+        return this.playerTableName;
+    }
+
+    public String[] getRaces() {
+        return this.races;
+    }
+
+    private void setRaces(String[] races) throws SettingsException {
+        if (races == null) {
+            throw new SettingsException("settings doesn't contain races");
+        }
+        this.races = races;
     }
 }
