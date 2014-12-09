@@ -15,14 +15,15 @@ public class GameServer {
     public static final String GAME_SETTINGS_JSON_PATH =
             "/Users/mitchellbrunton/IdeaProjects/mmorpg/config/settings.json";
 
-    public static void main(String args[]) throws SettingsException {
+    public static void main(String args[])
+            throws SettingsException, DatabaseException {
         // handle any command line flags supplied
 
         // parse settings json
         GameSettings settings = getGameSettings();
 
         // connect with state and player dbs
-
+        DatabaseManager databaseManager = new DatabaseManager(settings);
         // check state db for saved world state
 
         // load saved world state, or start a new one if absent

@@ -3,5 +3,5 @@
     name: "mmorpg",
     playerDbHost: "localhost",
     playerDbPort: "5432",
-    playerDbName: "playerDb"
+    playerDbName: "mydb"
 }
