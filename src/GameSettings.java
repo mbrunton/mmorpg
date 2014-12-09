@@ -1,19 +1,66 @@
+import java.util.Map;
+
 /**
  * Created by mitchellbrunton on 8/12/14.
  */
 public class GameSettings {
-    private GameSettings() {}
 
     private String name;
+    private String playerDbHost;
+    private String playerDbPort;
+    private String playerDbName;
+
     public static final String DEFAULT_NAME = "mmorpg";
 
-    public static GameSettings getInstance() {
-        return new GameSettings();
+    public GameSettings(Map settingsMap) throws SettingsException {
+        setName((String)settingsMap.get("name"));
+        setPlayerDbHost((String)settingsMap.get("playerDbHost"));
+        setPlayerDbPort((String)settingsMap.get("playerDbPort"));
+        setPlayerDbName((String)settingsMap.get("playerDbName"));
     }
 
-    public GameSettings setName(String name) {
-        this.name = name == null ? DEFAULT_NAME : name;
-        return this;
+    public void setName(String name) {
+        if (name != null) {
+            this.name = name;
+        } else {
+            this.name = DEFAULT_NAME;
+        }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setPlayerDbHost(String host) throws SettingsException {
+        if (host == null) {
+            throw new SettingsException("settings doesn't contain player db host");
+        }
+        this.playerDbHost = host;
+    }
+
+    public String getPlayerDbHost() {
+        return this.playerDbHost;
+    }
+
+    public void setPlayerDbPort(String port) throws SettingsException {
+        if (port == null) {
+            throw new SettingsException("settings doesn't contain player db port");
+        }
+        this.playerDbPort = port;
+    }
+
+    public String getPlayerDbPort() {
+        return this.playerDbPort;
+    }
+
+    public void setPlayerDbName(String dbName) throws SettingsException {
+        if (dbName == null) {
+            throw new SettingsException("settings doesn't contain player db name");
+        }
+        this.playerDbName = dbName;
+    }
+
+    public String getPlayerDbName() {
+        return this.playerDbName;
+    }
 }
