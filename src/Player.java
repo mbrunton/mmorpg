@@ -1,5 +1,4 @@
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,25 +12,24 @@ public class Player {
     private String username;
     private String passwordHash;
     private Race race;
-
     private Position spawnPosition;
-
     private MeleeWeapon meleeWeapon;
     private RangedWeapon rangedWeapon;
     private List<InventoryItem> inventory;
     private List<Integer> buildingIds;
-
     private Timestamp dateJoined;
 
-    public Player(String username, String passwordHash, Race race, int inventorySize) {
+    public Player(String username, String passwordHash, Race race, Position spawnPosition, MeleeWeapon meleeWeapon,
+                  RangedWeapon rangedWeapon, List<InventoryItem> inventory, List<Integer> buildingIds, Timestamp dateJoined) {
         this.username = username;
         this.passwordHash = passwordHash;
         this.race = race;
-
-        this.inventory = new ArrayList<InventoryItem>(inventorySize);
-        for (int i = 0; i < inventorySize; i++) {
-            inventory.set(i, null);
-        }
+        this.spawnPosition = spawnPosition;
+        this.meleeWeapon = meleeWeapon;
+        this.rangedWeapon = rangedWeapon;
+        this.inventory = inventory;
+        this.buildingIds = buildingIds;
+        this.dateJoined = dateJoined;
     }
 
     public String getUsername() {

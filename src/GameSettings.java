@@ -11,6 +11,9 @@ public class GameSettings {
     private String playerDbName;
     private String playerTableName;
     private String[] races;
+    private String[] meleeWeapons;
+    private String[] rangedWeapons;
+    private String[] inventoryItems;
 
     public static final String DEFAULT_NAME = "mmorpg";
 

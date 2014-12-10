@@ -8,5 +8,14 @@
     races: [ GNOME, WIZARD ],
     meleeWeapons: [ SWORD, AXE, CLUB ],
     rangedWeapons: [ BOW, SHOTGUN, RIFLE ],
-    inventoryItems: [ HEALTH_SMALL, HEALTH_LARGE ]
+    inventoryItems: [ HEALTH_SMALL, HEALTH_LARGE ],
+    playerFields: {
+        username: "username",
+        passwordHash: "passwordHash",
+        race: "race",
+        spawnPosition: "spawnPosition",
+        meleeWeapon: "meleeWeapon",
+        rangedWeapon: "rangedWeapon",
+        dateJoined: "dateJoined"
+    }
 }

@@ -7,6 +7,8 @@ import com.json.parsers.JsonParserFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -17,6 +19,11 @@ public class GameServer {
 
     public static void main(String args[])
             throws SettingsException, DatabaseException {
+        // DEBUGGING: dummy player
+        Player dummyPlayer = new Player("username", "hash", Player.Race.GNOME, new Position(), new MeleeWeapon("SWORD"),
+                                        new RangedWeapon("BOW"), new ArrayList<InventoryItem>(),
+                                        new ArrayList<Integer>(), new Timestamp(System.currentTimeMillis()));
+
         // handle any command line flags supplied
 
         // parse settings json
@@ -24,12 +31,17 @@ public class GameServer {
 
         // connect with state and player dbs
         DatabaseManager databaseManager = new DatabaseManager(settings);
+
         // check state db for saved world state
 
         // load saved world state, or start a new one if absent
 
+        // setup active player table
+        ActivePlayerTable activePlayerTable = new ActivePlayerTable();
+        activePlayerTable.addPlayer(dummyPlayer); // DEBUGGING
+
         // setup connection manager
-            // setup active player table
+        ConnectionManager connectionManager = new ConnectionManager(databaseManager, activePlayerTable);
 
         // setup input manager
 
