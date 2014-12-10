@@ -133,7 +133,21 @@ public class DatabaseManager {
                             inventory, buildingIds, dateJoined);
     }
 
-    public boolean updatePlayer(Player player) {
-        return false;
+    public boolean updatePlayer(Player player) throws SQLException {
+        boolean deleteSuccess = deletePlayer(player.getUsername());
+        if (!deleteSuccess) {
+            return false;
+        }
+        boolean insertSuccess = insertPlayer(player);
+        return insertSuccess;
+    }
+
+    private boolean deletePlayer(String username) throws SQLException {
+        Statement statement = db.createStatement();
+        String deleteString = "DELETE FROM " + settings.getPlayerTableName();
+        deleteString += " WHERE username = " + username;
+
+        boolean success = statement.execute(deleteString);
+        return success;
     }
 }

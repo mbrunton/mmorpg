@@ -13,6 +13,18 @@ public class ConnectionManager {
         this.activePlayerTable = activePlayerTable;
     }
 
+    public boolean signupPlayer(Player player) {
+        boolean success = false;
+        try {
+            success = databaseManager.insertPlayer(player);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        return success;
+    }
+
     public boolean connectPlayer(String username, String passwordHash) {
         Player player = null;
         try {
@@ -28,6 +40,17 @@ public class ConnectionManager {
         } else {
             return false;
         }
+    }
+
+    public boolean updatePlayer(Player player) {
+        boolean success = false;
+        try {
+            success = databaseManager.updatePlayer(player);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return success;
     }
 
     public boolean disconnectPlayer(String username) {

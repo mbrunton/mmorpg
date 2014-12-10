@@ -16,6 +16,8 @@
         spawnPosition: "spawnPosition",
         meleeWeapon: "meleeWeapon",
         rangedWeapon: "rangedWeapon",
+        inventory: "inventory",
+        buildingIds: "buildingIds",
         dateJoined: "dateJoined"
     }
 }
